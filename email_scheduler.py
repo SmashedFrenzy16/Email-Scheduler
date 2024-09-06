@@ -27,3 +27,10 @@ def send_email():
     server.sendmail(email, r_email, message)
 
     server.quit()
+
+# Email scheduled at a certain time every day
+schedule.every().day.at("08:00").do(send_email) # Change time on this line
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
