@@ -17,5 +17,13 @@ port = input("Enter in your email SMTP port: ")
 message = input("Enter in your email message: ")
 
 def send_email():
+    
+    server = smtplib.SMTP(smtp, port)
 
-  pass
+    server.starttls()
+
+    server.login(email, email_pass)
+
+    server.sendmail(email, r_email, message)
+
+    server.quit()
